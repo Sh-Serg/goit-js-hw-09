@@ -86,3 +86,38 @@ a:hover {
 .label {
   text-transform: uppercase;
 }
+
+.form {
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.411);
+  border: 3px solid #000;
+  border-radius: 20px;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px;
+  display: flex;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  font-size: large;
+  font-weight: 700;
+  color: #fff;
+}
+
+.form input {
+  border: 2px #000;
+  border-radius: 4px;
+  outline: none;
+  padding: 8px 12px;
+  font-size: larger;
+}
+
+.form button {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}

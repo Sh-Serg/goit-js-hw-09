@@ -12,6 +12,13 @@ const hour = document.querySelector('[data-hours]');
 const minute = document.querySelector('[data-minutes]');
 const second = document.querySelector('[data-seconds]');
 
+const optionsNotify = {
+  position: 'center-top',
+  borderRadius: '15px',
+  timeout: 2000,
+  clickToClose: true,
+};
+
 let intervalId = null;
 
 btnStart.classList.add('btn');
@@ -23,13 +30,10 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log(selectedDates[0] - Date.now());
     if (selectedDates[0] <= Date.now()) {
-      console.log('FALSE');
-      Notify.failure('Please choose a date in the future');
+      Notify.failure('Please choose a date in the future', optionsNotify);
     } else {
-      console.log('OK');
-      Notify.success('Lets go?');
+      Notify.success('Lets go?', optionsNotify);
       btnStart.removeAttribute('disabled');
     }
   },
