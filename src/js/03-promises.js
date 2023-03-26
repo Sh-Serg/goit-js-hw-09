@@ -9,7 +9,7 @@ const optionsNotify = {
   clickToClose: true,
 };
 
-form.addEventListener('click', onPromiseCreate);
+form.addEventListener('submit', onPromiseCreate);
 
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
@@ -31,10 +31,10 @@ function onPromiseCreate(e) {
   let inputStep = Number(step.value);
   let inputAmount = Number(amount.value);
 
-  for (let i = 1; i <= inputAmount; i += 1) {
-    inputDelay += inputStep;
-
-    createPromise(i, inputDelay)
+  for (let i = 0; i <= inputAmount; i += 1) {
+    const delays = inputDelay + inputStep * i;
+    // console.log(delays);
+    createPromise(i, delays)
       .then(({ position, delay }) => {
         Notify.success(
           `Fulfilled promise ${position} in ${delay}ms`,
